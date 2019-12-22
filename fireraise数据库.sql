@@ -13,8 +13,8 @@ File Encoding         : 65001
 Date: 2019-11-13 10:15:34
 */
 
-SET FOREIGN_KEY_CHECKS=0;
-
+CREATE DATABASE fireraise;
+USE fireraise;
 -- ----------------------------
 -- Table structure for `applican`
 -- ----------------------------
