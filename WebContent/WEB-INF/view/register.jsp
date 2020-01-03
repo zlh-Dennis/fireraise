@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>火焰筹|用户注册</title>
+<title>火焰筹 | 用户注册</title>
 <script src="resources/js/jquery-3.3.1.js"></script>
 <link rel="stylesheet" href="resources/css/bootstrap.css" />
 <script src="resources/js/bootstrap.js"></script>
@@ -19,9 +19,7 @@
 			<div class="modal-header">
 				<h3 style="display: inline">用户注册</h3>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<h5 style="display: inline">
-					<font style="color: red">这里显示用户注册时的信息</font>
-				</h5>
+				<h5 id="warnning" style="display: inline; color: red">  </h5>
 			</div>
 			<br>
 
@@ -45,17 +43,8 @@
 				<div class="form-group">
 					<label for="register_email" class="col-sm-2 control-label">邮箱</label>
 					<div class="col-sm-10">
-						<input style="width:72%; display:inline" type="text" class="form-control" id="register_email"
+						<input style="width:90%; display:inline" type="text" class="form-control" id="register_email"
 							placeholder="请输入邮箱">
-							<button class="btn btn-default" onclick="send_confirmCode()">发送确认码</button>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label for="register_bankcard" class="col-sm-2 control-label">银行卡号</label>
-					<div class="col-sm-10">
-						<input style="width:90%" type="text" class="form-control" id="register_bankcard"
-							placeholder="请输入银行卡号">
 					</div>
 				</div>
 
@@ -67,13 +56,14 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="" register_repassword"" class="col-sm-2 control-label">确认密码</label>
+					<label for="register_repassword" class="col-sm-2 control-label">确认密码</label>
 					<div class="col-sm-10">
 						<input style="width:90%" type="password" class="form-control"
 							id="register_repassword" placeholder="请确认密码">
 					</div>
 				</div>
-
+				
+				<!-- 
 				<span class="center-block" style="width: 70%">
 					<div class="form-group">
 						<label for="exampleInputFile">请上传身份证正面照</label> <input type="file"
@@ -85,6 +75,8 @@
 							id="register_card2" name="register_card2">
 					</div>
 				</span>
+				 -->
+				 
 			</form>
 
 			<div class="modal-footer">
