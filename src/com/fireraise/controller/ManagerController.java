@@ -86,8 +86,8 @@ public class ManagerController {
 	public String appQuery(Model model, String app_name, String app_phone, String app_state, String app_begin,
 			String app_end, String app_page, String app_again) {
 		Byte state = null == app_state || "".equals(app_state) ? null : Byte.valueOf(app_state);
+		
 		Integer page;
-
 		if ("1".equals(app_again))
 			page = 1;
 		else
@@ -95,9 +95,13 @@ public class ManagerController {
 
 		// 直接查询所有的项目，然后在每个过滤器中过滤
 		List<Applicant> allApplicants = applicantService.dateFilter(
-				applicantService.nameFilter(applicantService.phoneFilter(
-						applicantService.stateFilter(applicantService.getAll(), state), app_phone), app_name),
+				applicantService.phoneFilter(
+						applicantService.stateFilter(
+								applicantService.getAllByMoHu(app_name), 
+								state), 
+						app_phone), 
 				app_begin, app_end);
+				
 		List<Applicant> applicants = null;
 		Integer size = allApplicants.size();
 

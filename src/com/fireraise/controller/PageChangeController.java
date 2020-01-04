@@ -8,33 +8,65 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.fireraise.pojo.Advertisement;
 import com.fireraise.pojo.Applicant;
+import com.fireraise.pojo.Bankcard;
 import com.fireraise.pojo.User;
-import com.fireraise.service.AdvertisementService;
 import com.fireraise.service.ApplicantService;
+import com.fireraise.service.BankCardService;
 import com.fireraise.service.UserService;
 
 @Controller
 public class PageChangeController {
 
-	@Resource private AdvertisementService advertisementService;
 	@Resource private ApplicantService applicantService;
 	@Resource private UserService userService;
+	@Resource private BankCardService bankCardService;
+	
+	@RequestMapping("toUserBank.do")
+	public String toUserBank(Model model, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("account");
+		
+		List<Bankcard> bankcards = bankCardService.getAllByUser(user.getId());
+		System.out.println(bankcards.size());
+		
+		model.addAttribute("bankcards", bankcards);
+		return "userbank";
+	}
+	
+	@RequestMapping("toDetail")
+	public String toDetail(String applicantId, Model model) {
+		System.out.println(applicantId + "!!!!!11111");
+		
+		Applicant applicant = applicantService.getOneById(applicantId);
+		model.addAttribute("applicant",applicant);
+		
+		System.out.println(applicant.getName());
+		return "detail";
+	}
+	
+	@RequestMapping("toProject")
+	public String toProject() {
+		return "project";
+	}
 	
 	@RequestMapping({"start","/"})
 	public String start(Model model) {
-		List<Advertisement> advertisements = advertisementService.getAllActicity();
-		JSONObject json = new JSONObject();
-		json.put("advs", advertisements);
-		System.out.println(json);
-		model.addAttribute("advs", json);
+		List<Applicant> applicants = applicantService.getAll();
+		
+		model.addAttribute("applicants", applicants);
 		return "index";
+	}
+	
+	@RequestMapping("toUserRaise.do")
+	public String toUserRaise() {
+		
+		
+		return "userRaise";
 	}
 	
 	@RequestMapping("toLogin")
