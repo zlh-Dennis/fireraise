@@ -43,6 +43,10 @@ public class AccountController {
 		System.out.println(source);
 
 		if (user != null) { // 如果 user 对象不为空
+			
+			if(username.contains("@") && user.getMailState() == false)
+				return "email error";
+			
 			if (user.getPassword().equals(MD5Util.encryption(password))) {
 				session.setAttribute("account", user);
 				session.setAttribute("type", "user");
@@ -143,6 +147,9 @@ public class AccountController {
 	@ResponseBody
 	public String forgetPassword(String username, String password, String code) throws Exception {
 		User user = userService.getOneByUsername(username);
+		
+		if(username.contains("@") && user.getMailState() == false)
+			return "email error";
 		if (userService.updatePassword(user.getId(), MD5Util.encryption(password))) {
 			System.out.println("密码重置成功");
 			String mailText = "您的密码已重置成功,如果此操作不是您本人所为,请  <a href='http://localhost:8080/fireraise/toForgetPassword'>点击此处</a> 修改密码";

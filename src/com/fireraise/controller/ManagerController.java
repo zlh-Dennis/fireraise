@@ -93,6 +93,8 @@ public class ManagerController {
 		else
 			page = Integer.valueOf(app_page);
 
+		System.out.println(app_phone + "  ????");
+		
 		// 直接查询所有的项目，然后在每个过滤器中过滤
 		List<Applicant> allApplicants = applicantService.dateFilter(
 				applicantService.phoneFilter(
