@@ -40,13 +40,23 @@
 	</filter-mapping>
 	
 	<filter>
-		<description>过滤对需登录才能访问的请求</description>
-        <filter-name>loginFilter</filter-name>
-        <filter-class>com.fireraise.filter.LoginFilter</filter-class>
+		<description>过滤对需用户登录才能访问的请求</description>
+        <filter-name>UserLoginFilter</filter-name>
+        <filter-class>com.fireraise.filter.UserLoginFilter</filter-class>
 	</filter>
 	<filter-mapping>
-        <filter-name>loginFilter</filter-name>
+        <filter-name>UserLoginFilter</filter-name>
         <url-pattern>*.do</url-pattern>
+    </filter-mapping>
+    
+    <filter>
+		<description>过滤对需管理员登录才能访问的请求</description>
+        <filter-name>ManagerLoginFilter</filter-name>
+        <filter-class>com.fireraise.filter.ManagerLoginFilter</filter-class>
+	</filter>
+	<filter-mapping>
+        <filter-name>ManagerLoginFilter</filter-name>
+        <url-pattern>*.done</url-pattern>
     </filter-mapping>
 
 	<!-- 3、首页列表 -->
