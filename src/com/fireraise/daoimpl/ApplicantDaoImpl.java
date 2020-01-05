@@ -45,6 +45,13 @@ public class ApplicantDaoImpl implements ApplicantDao{
 		return ht.findByExample(example);
 	}
 	
+	@SuppressWarnings({ "unchecked", "deprecation" })
+	@Override
+	public List<Applicant> getAllByMoHu(String name) {
+		List<Applicant> list = (List<Applicant>) ht.find("from Applicant where name like '%" + name + "%'");
+		return list;
+	}
+	
 	@Override
 	public Boolean updateState(String applicantId, Byte state) {
 		Applicant example = ht.get(Applicant.class, applicantId);

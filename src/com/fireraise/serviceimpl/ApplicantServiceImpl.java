@@ -43,6 +43,14 @@ public class ApplicantServiceImpl implements ApplicantService {
 	}
 	
 	@Override
+	public List<Applicant> getAllByMoHu(String name) {
+		if(null == name || "".equals(name))
+			return applicantDao.getAll();
+		else
+			return applicantDao.getAllByMoHu(name);
+	}
+	
+	@Override
 	public Boolean updateState(String applicantId, Byte state) {
 		return applicantDao.updateState(applicantId, state);
 	}
@@ -74,6 +82,7 @@ public class ApplicantServiceImpl implements ApplicantService {
 		System.out.println("经过项目名过滤器过滤之后，还剩：" + list.size());
 		return list;
 	}
+	
 
 	@Override
 	public List<Applicant> phoneFilter(List<Applicant> applicants, String phone) {
@@ -81,9 +90,12 @@ public class ApplicantServiceImpl implements ApplicantService {
 		if (null == phone || "".equals(phone))
 			return applicants;
 
-		for (Applicant applicant : applicants)
+		for (Applicant applicant : applicants) {
+			System.out.println(userDao.getOneById(applicant.getUserId()).getPhone());
+			System.out.println(phone);
 			if (phone.equals(userDao.getOneById(applicant.getUserId()).getPhone()))
 				list.add(applicant);
+		}
 		System.out.println("经过用户过滤器过滤之后，还剩：" + list.size());
 		return list;
 	}

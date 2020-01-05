@@ -1,7 +1,6 @@
 package com.fireraise.serviceimpl;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -64,7 +63,6 @@ public class OperationServiceImpl implements OperationService {
 		} finally {
 			ts.close();
 		}
-
 	}
 
 	@Override
@@ -89,9 +87,11 @@ public class OperationServiceImpl implements OperationService {
 	 * @Title: upload
 	 * @return: List<FileItem> 处理之后的内容，打包成集合
 	 */
+	@SuppressWarnings("rawtypes")
 	@Override
 	public List<FileItem> upload(HttpServletRequest request) throws IOException, FileUploadException {
 		System.out.println("开始处理请求");
+		request.setCharacterEncoding("UTF-8");
 		List<FileItem> list = new ArrayList<FileItem>();
 
 		// 实例化一个硬盘文件工厂,用来配置上传组件ServletFileUpload
@@ -109,6 +109,7 @@ public class OperationServiceImpl implements OperationService {
 			FileItem fi = (FileItem) it.next();
 			list.add(fi);
 		}
+		System.out.println("请求处理结束  " + list.size());
 		return list;
 	}
 

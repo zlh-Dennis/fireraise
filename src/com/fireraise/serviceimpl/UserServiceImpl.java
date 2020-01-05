@@ -7,10 +7,8 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.fireraise.dao.UserDao;
-import com.fireraise.pojo.Applicant;
 import com.fireraise.pojo.User;
 import com.fireraise.service.UserService;
 import com.fireraise.util.DateUtil;
@@ -60,7 +58,6 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public Boolean verifyEmail(String userId) {
-		// TODO Auto-generated method stub
 		return userDao.verifyEmail(userId);
 	}
 
@@ -78,8 +75,7 @@ public class UserServiceImpl implements UserService {
 	
 	@Override
 	public Boolean withdrawToBankCard(String userId, Integer money) {
-		// TODO Auto-generated method stub
-		return null;
+		return userDao.withdrawToBankCard(userId, money);
 	}
 
 	@Override
@@ -90,14 +86,12 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public Boolean donation(String userId, Integer money) {
-		// TODO Auto-generated method stub
-		return null;
+		return userDao.donation(userId, money);
 	}
 
 	@Override
 	public Boolean recharge(String userId, Integer money) {
-		// TODO Auto-generated method stub
-		return null;
+		return userDao.recharge(userId, money);
 	}
 
 	@Override
