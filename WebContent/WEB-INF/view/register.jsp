@@ -23,61 +23,42 @@
 			</div>
 			<br>
 
-			<form class="form-horizontal">
+			<div class="form-horizontal">
 				<div class="form-group">
 					<label for="register_name" class="col-sm-2 control-label">姓名</label>
 					<div class="col-sm-10">
-						<input style="width:90%" type="text" class="form-control" id="register_name"
-							placeholder="请输入真实姓名">
+						<input style="width:90%" autocomplete="off" type="text" class="form-control" id="register_name" placeholder="请输入真实姓名">
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label for="register_phone" class="col-sm-2 control-label">手机号</label>
 					<div class="col-sm-10">
-						<input style="width:90%" type="text" class="form-control" id="register_phone"
-							placeholder="请输入手机号">
+						<input style="width:90%" autocomplete="off" type="text" class="form-control" id="register_phone" placeholder="请输入手机号">
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label for="register_email" class="col-sm-2 control-label">邮箱</label>
 					<div class="col-sm-10">
-						<input style="width:90%; display:inline" type="text" class="form-control" id="register_email"
-							placeholder="请输入邮箱">
+						<input style="width:90%; display:inline" autocomplete="off" type="text" class="form-control" id="register_email" placeholder="请输入邮箱">
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label for="register_password" class="col-sm-2 control-label">密码</label>
 					<div class="col-sm-10">
-						<input style="width:90%" type="password" class="form-control" id="register_password"
-							placeholder="请输入密码">
+						<input style="width:90%" type="password" class="form-control" id="register_password" placeholder="请输入密码">
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="register_repassword" class="col-sm-2 control-label">确认密码</label>
 					<div class="col-sm-10">
-						<input style="width:90%" type="password" class="form-control"
-							id="register_repassword" placeholder="请确认密码">
+						<input style="width:90%" type="password" class="form-control" id="register_repassword" placeholder="请确认密码">
 					</div>
 				</div>
 				
-				<!-- 
-				<span class="center-block" style="width: 70%">
-					<div class="form-group">
-						<label for="exampleInputFile">请上传身份证正面照</label> <input type="file"
-							id="register_card1" name="register_card1">
-					</div>
-				</span> <span class="center-block" style="width: 70%">
-					<div class="form-group">
-						<label for="exampleInputFile">请上传身份证背面照</label> <input type="file"
-							id="register_card2" name="register_card2">
-					</div>
-				</span>
-				 -->
-				 
-			</form>
+			</div>
 
 			<div class="modal-footer">
 				<button class="btn btn-default" onclick="register()">注册</button>

@@ -15,7 +15,7 @@ window.onload = function() {
 	if('${requestScope.type}' == "false")
 		alert("申请失败，请稍后再试");
 	if('${requestScope.type}' == "true")
-		window.location.href="/fireraise/start";
+		window.location.href="/fireraise/toUser.do";
 }
 </script>
 </head>

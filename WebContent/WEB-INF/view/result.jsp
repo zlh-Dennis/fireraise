@@ -141,7 +141,9 @@ function previous() {
 								<c:forEach items="${requestScope.applicants}" var="applicant">
 									<li class="pro-item">
 										<div class="pic">
-											<a href="../fireraise/toDetail?applicantId=${applicant.getId()}"><img style="height:240px;width:180px;" src="resources/poster/${applicant.getPicture1()}.jpg"></a>
+											<a href="../fireraise/toDetail?applicantId=${applicant.getId()}">
+												<img style="height:240px;width:180px;" src="resources/poster/${applicant.getPicture1()}.jpg">
+											</a>
 										</div>
 										<div class="info">
 											<h3>项目名：${applicant.getName()}</h3>

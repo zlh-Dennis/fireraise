@@ -81,7 +81,12 @@ public class PageChangeController {
 	}
 	
 	@RequestMapping("toApply.do")
-	public String toApply() {
+	public String toApply(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("account");
+		
+		if(user.getState() != (byte)2) return "redirect:toVerify.do";
+		
 		System.out.println("前往申请请求页面");
 		return "apply";
 	}
@@ -175,5 +180,4 @@ public class PageChangeController {
 		model.addAttribute("applicants", applicants);
 		return "manager";
 	}
-	
 }

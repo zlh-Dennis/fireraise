@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>管理员页</title>
+<title>个人账单页</title>
 <script src="resources/js/jquery-3.3.1.js"></script>
 <link rel="stylesheet" href="resources/css/bootstrap.css" />
 <link rel="stylesheet" href="resources/css/dashboard.css" />

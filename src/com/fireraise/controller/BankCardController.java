@@ -42,8 +42,8 @@ public class BankCardController {
 		
 		Bankcard bankcard = bankCardService.getOneById(recharge_bankcard);
 		
+		if(bankcard.getState() == false) return "bankcard error";
 		if(!recharge_password.equals(bankcard.getPassword())) return "password error";
-		
 		if(money > bankcard.getMoney()) return "money error";
 		
 		Boolean flag1 = userService.recharge(userId, money);
@@ -78,8 +78,8 @@ public class BankCardController {
 		Bankcard bankcard = bankCardService.getOneById(withdraw_bankcard);
 		User user = userService.getOneById(userId);
 		
+		if(bankcard.getState() == false) return "bankcard error";
 		if(!withdraw_password.equals(bankcard.getPassword())) return "password error";
-		
 		if(money > user.getMoney()) return "money error";
 		
 		Boolean flag1 = userService.withdrawToBankCard(userId, money);

@@ -7,6 +7,7 @@
 <title>邮箱验证</title>
 </head>
 <body>
+
 	<c:if test="${requestScope.result eq 'success'}">
 		您的邮箱验证成功，请<a href="toLogin">点击此处</a>前去登录。
 	</c:if>

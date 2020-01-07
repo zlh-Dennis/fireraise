@@ -10,8 +10,10 @@
 <script type="text/javascript">
 	window.onload = function() {
 		var type = '${requestScope.type}';
-		if(type == "true")
+		if(type == "true"){
 			alert("申请成功，等待管理员审核");
+			window.location.href="/fireraise/toUser.do";
+		}
 		if(type == "false")
 			alert("申请失败，请稍后再试");
 		if(type == "null")
@@ -111,7 +113,7 @@
 			</form>
 
 			<div class="modal-footer">
-				<button class="btn btn-default" onclick="$('#submit').click()">注册</button>
+				<button class="btn btn-default" onclick="$('#submit').click()">提交申请</button>
 			</div>
 			
 		</div>

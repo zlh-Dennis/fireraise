@@ -11,6 +11,7 @@ public interface ApplicantDao {
     Applicant getOneById(String applicantId);
     List<Applicant> getAllByUserId(String userId);
     List<Applicant> getAll();
+    List<Applicant> getAllByMoHu(String name);
     
     Boolean updateState(String applicantId, Byte state);
     Boolean donation(String applicantId, Integer money);

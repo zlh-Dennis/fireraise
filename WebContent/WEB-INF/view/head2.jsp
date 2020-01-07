@@ -35,11 +35,14 @@
 		<div class="row">
 			<div class="col-sm-3 col-md-2 sidebar">
 				<ul class="nav nav-sidebar">
-					<li class="active"><a>首页</a></li>
+					<li class="active"><a  href="start">首页</a></li>
 				</ul>
 				<ul class="nav nav-sidebar">
-					<li><a href="toManager.done">项目管理</a></li>
-					<li><a href="toManagerUser.done">用户管理</a></li>
+					<li><a href="toUser.do">我的申请</a></li>
+					<li><a href="userbill?app_again=1">我的捐赠</a></li>
+					<li><a href="toUserBank.do">我的账户</a></li>
+					<li><a href="toApply.do">项目申请</a></li>
+					<li><a href="toVerify.do">账号实名</a></li>
 				</ul>
 			</div>
 		</div>

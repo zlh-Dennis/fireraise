@@ -39,11 +39,11 @@ $(function(){
 			</div>
 			<br>
 
-			<form class="form-horizontal" method="post" action="login">
+			<div class="form-horizontal">
 				<div class="form-group">
 					<label for="login_username" class="col-sm-2 control-label">手机号或邮箱</label>
 					<div class="col-sm-10">
-						<input style="width: 90%" type="text" class="form-control" id="login_username" placeholder="请输入手机号或邮箱">
+						<input style="width: 90%" autocomplete="off" type="text" class="form-control" id="login_username" placeholder="请输入手机号或邮箱">
 					</div>
 				</div>
 				<div class="form-group">
@@ -56,15 +56,14 @@ $(function(){
 					<div class="col-sm-offset-2 col-sm-10">
 						<div class="checkbox" style="width: 90%; display: flex; justify-content: space-between">
 							<label id="remember_label"> 
-							<input id="remember" name="remember" value="true" type="radio"> 记住密码
+								<input id="remember" name="remember" value="true" type="radio"> 记住密码
 							</label> 
-							<!-- <input style="display:none" name="remember" checked="checked" value="false" type="radio"> -->
 							<b style="text-align: right"> <a href="toForgetPassword">忘记密码</a> </b>
 						</div>
 					</div>
 				</div>
 				<input style="display:none" id="source" type="text" value="${source}">
-			</form>
+			</div>
 
 			<div class="modal-footer">
 				<button class="btn btn-default" onclick="login()">登录</button>
