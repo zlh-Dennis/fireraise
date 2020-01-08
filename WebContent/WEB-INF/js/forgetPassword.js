@@ -95,11 +95,13 @@ function repassword() {
 			if ("true" == text){
 				window.location.href="/fireraise/toLogin";
 				return;
-			}
-			if ("false" == text){
+			} else if ("false" == text){
 				$("#warnning").html("密码修改失败,请稍后再试");
 				return;
-			}
+			} else if(text == "email error"){
+            	$("#warnning").html("邮箱未激活，请查找注册邮箱中的激活邮件");
+            	return;
+            } 
 		}
 	}
 	
