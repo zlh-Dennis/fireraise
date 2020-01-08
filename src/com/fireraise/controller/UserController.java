@@ -36,9 +36,16 @@ public class UserController {
 	@Resource private BillService billService;
 
 	@RequestMapping("userbill")
-	public String userbill(Model model, String app_begin, String app_end, String app_page,
+	public String userbill(HttpServletRequest request,  Model model, String app_begin, String app_end, String app_page,
 			String app_again, String userId) {
 
+		HttpSession session = request.getSession();
+		User user1 = (User) session.getAttribute("account");
+		
+		if(null == userId || "".equals(userId)) {
+			userId = user1.getId();
+		}
+		
 		Integer page;
 		if ("1".equals(app_again))
 			page = 1;
