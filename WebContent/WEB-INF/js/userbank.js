@@ -30,11 +30,12 @@ function addBankcard() {
 			var text = xmlhttp.responseText;
 
 			if ("success" == text) {
+				location.reload(true);
 				$("#warnning").html("银行卡添加成功");
-				document.getElementById("addBankcard_div").style.display = 'none';
-				$("#bankcard").load(location.href + " #bankcard");// 注意后面DIV的ID前面的空格，很重要！没有空格的话，会出双眼皮！（也可以使用类名）
-				$("#recharge_div").load(location.href + " #recharge_div");// 注意后面DIV的ID前面的空格，很重要！没有空格的话，会出双眼皮！（也可以使用类名）
-				$("#withdraw_div").load(location.href + " #withdraw_div");// 注意后面DIV的ID前面的空格，很重要！没有空格的话，会出双眼皮！（也可以使用类名）
+				/*document.getElementById("addBankcard_div").style.display = 'none';
+				$("#bankcard2").load(location.href + " #bankcard2");
+				$("#recharge_div").load(location.href + " #recharge_div");
+				$("#withdraw_div").load(location.href + " #withdraw_div");*/
 			} else if ("fail" == text)
 				$("#warnning").html("银行卡添加失败,请稍后进行");
 		}
@@ -76,18 +77,7 @@ function recharge() {
 
 			if ("success" == text) {
 				location.reload();
-				/*
-				 * $("#warnning").html("充值成功");
-				 * document.getElementById("recharge_div").style.display =
-				 * 'none'; $("#bankcard").load(location.href + "
-				 * #bankcard");//注意后面DIV的ID前面的空格，很重要！没有空格的话，会出双眼皮！（也可以使用类名）
-				 * $("#recharge_div").load(location.href + "
-				 * #recharge_div");//注意后面DIV的ID前面的空格，很重要！没有空格的话，会出双眼皮！（也可以使用类名）
-				 * $("#withdraw_div").load(location.href + "
-				 * #withdraw_div");//注意后面DIV的ID前面的空格，很重要！没有空格的话，会出双眼皮！（也可以使用类名）
-				 * $("#account").load(location.href + "
-				 * #account");//注意后面DIV的ID前面的空格，很重要！没有空格的话，会出双眼皮！（也可以使用类名）
-				 */} else if ("password error" == text) {
+			} else if ("password error" == text) {
 				$("#warnning").html("充值失败,密码错误");
 			} else if ("money error" == text) {
 				$("#warnning").html("充值失败,银行卡金额不足");
@@ -134,18 +124,6 @@ function withdraw() {
 
 			if ("success" == text) {
 				location.reload();
-				/*
-				 * $("#warnning").html("充值成功");
-				 * document.getElementById("recharge_div").style.display =
-				 * 'none'; $("#bankcard").load(location.href + "
-				 * #bankcard");//注意后面DIV的ID前面的空格，很重要！没有空格的话，会出双眼皮！（也可以使用类名）
-				 * $("#recharge_div").load(location.href + "
-				 * #recharge_div");//注意后面DIV的ID前面的空格，很重要！没有空格的话，会出双眼皮！（也可以使用类名）
-				 * $("#withdraw_div").load(location.href + "
-				 * #withdraw_div");//注意后面DIV的ID前面的空格，很重要！没有空格的话，会出双眼皮！（也可以使用类名）
-				 * $("#account").load(location.href + "
-				 * #account");//注意后面DIV的ID前面的空格，很重要！没有空格的话，会出双眼皮！（也可以使用类名）
-				 */
 				} else if ("password error" == text) {
 				$("#warnning").html("充值失败,密码错误");
 			} else if ("money error" == text) {
